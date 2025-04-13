@@ -1,0 +1,240 @@
+.main-content {
+  padding-top: 80px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.vision-circle {
+  position: relative;
+  width: 700px;
+  height: 700px;
+  margin: 2rem auto;
+}
+
+.center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.center-content:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.center-content:hover .center-text h1 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.center-text {
+  position: absolute;
+  text-align: center;
+  padding: 2rem;
+  z-index: 3;
+}
+
+.center-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: white;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.center-text p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.click-text {
+  font-size: 0.9rem !important;
+  opacity: 0.7;
+  font-weight: 300 !important;
+  letter-spacing: 0.02em;
+}
+
+.vision-item {
+  position: absolute;
+  width: 300px;
+  height: 160px;
+  border-radius: 12px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.vision-item img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* Specific styling for AI & ML image */
+.vision-item:nth-child(4) img {
+  object-fit: contain;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+
+.vision-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  opacity: 1;
+  z-index: 2;
+}
+
+.vision-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transform: none;
+  color: white;
+}
+
+.vision-content p {
+  font-size: 0.95rem;
+  opacity: 1;
+  transform: none;
+  transition: var(--transition);
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.vision-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.vision-item:hover img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.vision-item:hover .vision-content {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(1px);
+}
+
+.vision-item:hover .vision-content h2,
+.vision-item:hover .vision-content p {
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Position items in a circle */
+.vision-item {
+  --angle: calc(360deg / var(--total) * var(--index));
+  --radius: 460px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(var(--radius)) rotate(calc(-1 * var(--angle)));
+  background-position: center;
+  background-size: cover;
+}
+
+.vision-item:hover {
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateY(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .vision-circle {
+    width: 600px;
+    height: 600px;
+  }
+
+  .vision-item {
+    --radius: 220px;
+    width: 200px;
+    height: 140px;
+  }
+
+  .center-content {
+    width: 350px;
+    height: 350px;
+  }
+
+  .center-text h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .vision-circle {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .center-content {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+  }
+
+  .vision-item {
+    position: relative;
+    transform: none !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 180px;
+  }
+
+  .vision-content p {
+    opacity: 1;
+    transform: none;
+  }
+} 
