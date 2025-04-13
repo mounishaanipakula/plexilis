@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Services from './components/Services';
@@ -17,14 +17,16 @@ function App() {
         <Navbar />
         <main className="main-container">
           <Routes>
-            <Route path="/" element={
+          <Route path="/plexilis" element={
               <>
                 <Services />
                 <Products />
               </>
             } />
-            <Route path="/service/:serviceName" element={<ServiceDetails />} />
-            <Route path="/product/:productId" element={<ProductDetails />} />
+            <Route path="/plexilis/service/:serviceId" element={<ServiceDetails />} />
+            <Route path="/plexilis/product/:productId" element={<ProductDetails />} />
+            <Route path="/" element={<Navigate to="/plexilis" replace />} />
+            <Route path="*" element={<Navigate to="/plexilis" replace />} />
           </Routes>
         </main>
         <Footer />

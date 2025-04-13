@@ -29,8 +29,8 @@ const products = [
 const Products = () => {
   const navigate = useNavigate();
 
-  const handleProductClick = (productId) => {
-    navigate(`/product/${productId}`);
+  const handleProductClick = (path) => {
+    navigate(`/plexilis/product/${path}`);
   };
 
   return (

@@ -45,7 +45,7 @@ const Services = () => {
   const navigate = useNavigate();
 
   const handleServiceClick = (path) => {
-    navigate(`/service/${path}`);
+    navigate(`/plexilis/service/${path}`);
   };
 
   return (

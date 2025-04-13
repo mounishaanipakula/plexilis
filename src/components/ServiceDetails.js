@@ -313,19 +313,28 @@ const serviceDetails = {
 };
 
 const ServiceDetails = () => {
-  const { serviceName } = useParams();
+  const { serviceId } = useParams();
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState('overview');
   const [hoveredFeature, setHoveredFeature] = useState(null);
   const [hoveredBenefit, setHoveredBenefit] = useState(null);
   const [hoveredTech, setHoveredTech] = useState(null);
   const [hoveredUseCase, setHoveredUseCase] = useState(null);
   
   // Get service details based on the service name
-  const service = serviceDetails[serviceName];
+  const service = serviceDetails[serviceId];
   
   // If service doesn't exist, redirect to home
   if (!service) {
-    return <div className="service-not-found">Service not found. <button onClick={() => navigate('/')}>Return to Home</button></div>;
+    return (
+      <div className="service-details-container">
+        <div className="service-not-found">
+          <h2>Service Not Found</h2>
+          <p>The service you're looking for doesn't exist.</p>
+          <button onClick={() => navigate('/plexilis')}>Return to Home</button>
+        </div>
+      </div>
+    );
   }
   
   return (
