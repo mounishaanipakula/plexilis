@@ -2,23 +2,29 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Products.css';
 
+// Get the base URL for GitHub Pages
+const baseUrl = process.env.PUBLIC_URL || '';
+
 const products = [
   {
     id: 'migration-accelerators',
     title: 'Migration Accelerators',
     description: 'Streamline your data and application migration processes with our specialized tools and frameworks.',
+    image: `${baseUrl}/images/migration-accelerator.png`,
     icon: '🚀'
   },
   {
     id: 'system-analyzers',
     title: 'System Analyzers',
     description: 'Comprehensive analysis tools to evaluate, optimize, and enhance your existing systems and infrastructure.',
+    image: `${baseUrl}/images/system-analyzer.png`,
     icon: '🔍'
   },
   {
     id: 'custom-deep-research',
     title: 'Custom Deep Research',
     description: 'In-depth research solutions tailored to your specific industry challenges and business objectives.',
+    image: `${baseUrl}/images/deep-research.png`,
     icon: '📊'
   }
 ];
