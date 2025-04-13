@@ -7,21 +7,18 @@ const products = [
     id: 'migration-accelerators',
     title: 'Migration Accelerators',
     description: 'Streamline your data and application migration processes with our specialized tools and frameworks.',
-    image: '/images/migration-accelerator.png',
     icon: '🚀'
   },
   {
     id: 'system-analyzers',
     title: 'System Analyzers',
     description: 'Comprehensive analysis tools to evaluate, optimize, and enhance your existing systems and infrastructure.',
-    image: '/images/system-analyzer.png',
     icon: '🔍'
   },
   {
     id: 'custom-deep-research',
     title: 'Custom Deep Research',
     description: 'In-depth research solutions tailored to your specific industry challenges and business objectives.',
-    image: '/images/deep-research.png',
     icon: '📊'
   }
 ];
