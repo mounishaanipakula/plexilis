@@ -1,7 +1,7 @@
 {
   "name": "plexilis",
   "version": "1.0.0",
-  "homepage": "https://mounishaanipakula.github.io/plexilis",
+  "homepage": "https://mounishaanipakula.github.io/",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
