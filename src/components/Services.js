@@ -64,7 +64,7 @@ const Services = () => {
   }, []);
 
   const handleServiceClick = (path) => {
-    navigate(`/plexilis/service/${path}`);
+    navigate(`/services/${path}`);
   };
 
   // Determine font size based on screen size

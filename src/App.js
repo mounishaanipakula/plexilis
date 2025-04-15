@@ -17,16 +17,14 @@ function App() {
         <Navbar />
         <main className="main-container">
           <Routes>
-          <Route path="/plexilis" element={
+          <Route path="/" element={
               <>
                 <Services />
                 <Products />
               </>
             } />
-            <Route path="/plexilis/service/:serviceId" element={<ServiceDetails />} />
-            <Route path="/plexilis/product/:productId" element={<ProductDetails />} />
-            <Route path="/" element={<Navigate to="/plexilis" replace />} />
-            <Route path="*" element={<Navigate to="/plexilis" replace />} />
+            <Route path="/services/:serviceId" element={<ServiceDetails />} />
+            <Route path="/products/:productId" element={<ProductDetails />} />
           </Routes>
         </main>
         <Footer />

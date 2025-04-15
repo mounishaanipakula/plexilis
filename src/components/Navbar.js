@@ -158,13 +158,13 @@ const Navbar = () => {
   };
 
   const handleServiceClick = (path) => {
-    navigate(`/plexilis/service/${path}`);
+    navigate(`/services/${path}`);
     setIsMobileMenuOpen(false);
     setActiveSubmenu(null);
   };
 
   const handleProductClick = (path) => {
-    navigate(`/plexilis/product/${path}`);
+    navigate(`/products/${path}`);
     setIsMobileMenuOpen(false);
     setActiveSubmenu(null);
   };
@@ -177,7 +177,7 @@ const Navbar = () => {
     <>
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="navbar-container">
-          <Link to="/plexilis" className="logo">
+          <Link to="/" className="logo">
             <div className="logo-container">
               <svg className="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="var(--primary-color)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

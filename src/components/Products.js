@@ -33,7 +33,7 @@ const Products = () => {
   const navigate = useNavigate();
 
   const handleProductClick = (path) => {
-    navigate(`/plexilis/product/${path}`);
+    navigate(`/products/${path}`);
   };
 
   return (
