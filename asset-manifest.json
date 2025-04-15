@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/plexilis/static/css/main.43e03680.css",
-    "main.js": "/plexilis/static/js/main.484d5449.js",
+    "main.css": "/plexilis/static/css/main.ba203f67.css",
+    "main.js": "/plexilis/static/js/main.c2bda6bf.js",
     "static/js/453.d40b05e7.chunk.js": "/plexilis/static/js/453.d40b05e7.chunk.js",
     "index.html": "/plexilis/index.html",
-    "main.43e03680.css.map": "/plexilis/static/css/main.43e03680.css.map",
-    "main.484d5449.js.map": "/plexilis/static/js/main.484d5449.js.map",
+    "main.ba203f67.css.map": "/plexilis/static/css/main.ba203f67.css.map",
+    "main.c2bda6bf.js.map": "/plexilis/static/js/main.c2bda6bf.js.map",
     "453.d40b05e7.chunk.js.map": "/plexilis/static/js/453.d40b05e7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.43e03680.css",
-    "static/js/main.484d5449.js"
+    "static/css/main.ba203f67.css",
+    "static/js/main.c2bda6bf.js"
   ]
 }
