@@ -17,6 +17,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const mobileMenuRef = useRef(null);
   const buttonRef = useRef(null);
   const navigate = useNavigate();
@@ -75,6 +76,12 @@ const Navbar = () => {
     }
   };
 
+  // Determine device type based on window width
+  const isMobile = windowWidth <= 768;
+  const isTablet = windowWidth <= 1024 && windowWidth > 768;
+  const isSmallTablet = windowWidth <= 900 && windowWidth > 768;
+  const isLargeTablet = windowWidth <= 1200 && windowWidth > 1024;
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -92,16 +99,27 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      
+      // Close mobile menu when resizing to desktop view
       if (window.innerWidth > 768 && isMobileMenuOpen) {
         setIsMobileMenuOpen(false);
         setActiveSubmenu(null);
       }
     };
 
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(event.target) &&
+        buttonRef.current && 
         !buttonRef.current.contains(event.target)
       ) {
         setIsMobileMenuOpen(false);
@@ -109,14 +127,11 @@ const Navbar = () => {
       }
     };
 
-    window.addEventListener('resize', handleResize);
     document.addEventListener('mousedown', handleClickOutside);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isMobileMenuOpen]);
+  }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -154,6 +169,10 @@ const Navbar = () => {
     setActiveSubmenu(null);
   };
 
+  // Determine if we should show mobile menu button based on screen size
+  // Show mobile menu for phones (<=768px) and small tablets (768px-900px)
+  const showMobileMenuButton = windowWidth <= 900;
+
   return (
     <>
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
@@ -169,61 +188,65 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className="nav-links desktop-menu">
-            {Object.entries(menuItems).map(([category, { icon, items }]) => (
-              <div className="nav-item" key={category}>
-                <span className="nav-link">
-                  {icon}
-                  {category}
-                </span>
-                <div className="dropdown-menu">
-                  <div className="dropdown-content">
-                    {items.map((item) => (
-                      category === 'SERVICES' ? (
-                        <span 
-                          key={item.name} 
-                          className="dropdown-item"
-                          onClick={() => handleServiceClick(item.path)}
-                        >
-                          {item.name}
-                        </span>
-                      ) : category === 'PRODUCTS' ? (
-                        <span 
-                          key={item.name} 
-                          className="dropdown-item"
-                          onClick={() => handleProductClick(item.path)}
-                        >
-                          {item.name}
-                        </span>
-                      ) : (
-                        <span key={item} className="dropdown-item">
-                          {item}
-                        </span>
-                      )
-                    ))}
+          {!showMobileMenuButton && (
+            <div className="nav-links desktop-menu">
+              {Object.entries(menuItems).map(([category, { icon, items }]) => (
+                <div className="nav-item" key={category}>
+                  <span className="nav-link">
+                    {icon}
+                    {category}
+                  </span>
+                  <div className="dropdown-menu">
+                    <div className="dropdown-content">
+                      {items.map((item) => (
+                        category === 'SERVICES' ? (
+                          <span 
+                            key={item.name} 
+                            className="dropdown-item"
+                            onClick={() => handleServiceClick(item.path)}
+                          >
+                            {item.name}
+                          </span>
+                        ) : category === 'PRODUCTS' ? (
+                          <span 
+                            key={item.name} 
+                            className="dropdown-item"
+                            onClick={() => handleProductClick(item.path)}
+                          >
+                            {item.name}
+                          </span>
+                        ) : (
+                          <span key={item} className="dropdown-item">
+                            {item}
+                          </span>
+                        )
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-            <button className="contact-button-nav" onClick={() => setIsContactFormOpen(true)}>
-              <FaPhoneAlt className="menu-icon" />
-              Contact Us
-            </button>
-          </div>
+              ))}
+              <button className="contact-button-nav" onClick={() => setIsContactFormOpen(true)}>
+                <FaPhoneAlt className="menu-icon" />
+                Contact Us
+              </button>
+            </div>
+          )}
 
-          <button 
-            ref={buttonRef}
-            className="mobile-menu-button" 
-            onClick={toggleMobileMenu}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </button>
+          {showMobileMenuButton && (
+            <button 
+              ref={buttonRef}
+              className="mobile-menu-button" 
+              onClick={toggleMobileMenu}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
+            >
+              <span className={`hamburger ${isMobileMenuOpen ? 'open' : ''}`}>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+          )}
 
           {/* Mobile Menu */}
           <div
