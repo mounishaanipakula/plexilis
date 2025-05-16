@@ -77,8 +77,13 @@ const Services = () => {
   };
 
   return (
-    <main className="main-content">
-      <div className="vision-circle">
+    <main className="main-content" style={{ 
+      backgroundImage: `url(${baseUrl}/images/home-background.jpg)`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center 30px',
+      backgroundRepeat: 'no-repeat'
+    }}>
+      <div className="vision-circle" style={{ marginTop: '-50px' }}>
         <div className="center-content" style={{ backgroundImage: `url(${baseUrl}/images/services.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="center-text">
             <h1 style={{ 
@@ -113,6 +118,7 @@ const Services = () => {
               }
             }}
           >
+            <div className="vision-item-overlay" />
             <div className="vision-content">
               <h2>{item.title}</h2>
               <p>{item.subtitle}</p>

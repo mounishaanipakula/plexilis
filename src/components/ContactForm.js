@@ -197,7 +197,7 @@ const ContactForm = ({ isOpen, onClose }) => {
             <div className="contact-info">
               <div className="contact-item">
                 <FaPhone className="contact-icon" />
-                <span>+1 (987) 651-1111</span>
+                <span>+1 (404) 800-5522 </span>
               </div>
               <div className="contact-item">
                 <FaEnvelope className="contact-icon" />

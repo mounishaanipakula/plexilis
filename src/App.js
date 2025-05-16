@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Services from './components/Services';
 import Products from './components/Products';
+import Industries from './components/Industries';
 import ServiceDetails from './components/ServiceDetails';
 import ProductDetails from './components/ProductDetails';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ function App() {
               <>
                 <Services />
                 <Products />
+                <Industries />
               </>
             } />
             <Route path="/services/:serviceId" element={<ServiceDetails />} />
