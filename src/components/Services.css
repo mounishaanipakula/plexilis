@@ -200,6 +200,14 @@
   --radius: 490px;
 }
 
+/* Large desktops (adjust radius for screens > 1200px and <= 1600px) */
+@media (max-height: 1200px){
+  .vision-item:nth-child(2), /* UI & UX */
+  .vision-item:nth-child(5) { /* AI & ML */
+    --radius: 410px;
+  }
+}
+
 .vision-item:hover {
   transform: translate(-50%, -50%) rotate(var(--angle)) translateY(var(--radius)) rotate(calc(-1 * var(--angle))) scale(1.05);
 }
