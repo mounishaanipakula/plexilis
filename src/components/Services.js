@@ -80,10 +80,9 @@ const Services = () => {
     <main className="main-content" style={{ 
       backgroundImage: `url(${baseUrl}/images/home-background.jpg)`,
       backgroundSize: 'cover',
-      backgroundPosition: 'center 30px',
       backgroundRepeat: 'no-repeat'
     }}>
-      <div className="vision-circle" style={{ marginTop: '-50px' }}>
+      <div className="vision-circle">
         <div className="center-content" style={{ backgroundImage: `url(${baseUrl}/images/services.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
           <div className="center-text">
             <h1 style={{ 
