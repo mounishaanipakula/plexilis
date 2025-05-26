@@ -72,8 +72,7 @@ const Services = () => {
     if (isMobile) return '1.4rem';
     if (isSmallTablet) return '1.6rem';
     if (isTablet) return '1.8rem';
-    if (isLargeTablet) return '2rem';
-    return '2.2rem';
+    return '2rem';
   };
 
   return (

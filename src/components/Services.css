@@ -192,18 +192,18 @@
 
 /* Specific positioning for AI & ML and UI & UX */
 .vision-item:nth-child(2) { /* UI & UX */
-  --radius: 490px;
+  --radius: 475px;
 }
 
 .vision-item:nth-child(5) { /* AI & ML */
-  --radius: 490px;
+  --radius: 475px;
 }
 
 /* Large desktops (adjust radius for screens > 1200px and <= 1600px) */
 @media (max-height: 1200px){
   .vision-item:nth-child(2), /* UI & UX */
   .vision-item:nth-child(5) { /* AI & ML */
-    --radius: 410px;
+    --radius: 400px;
   }
 }
 
@@ -377,7 +377,7 @@
 
   .vision-item:nth-child(2), /* UI & UX */
   .vision-item:nth-child(5) { /* AI & ML */
-    --radius: 330px;
+    --radius: 310px;
   }
 }
 
@@ -412,7 +412,7 @@
 
   .vision-item:nth-child(2), /* UI & UX */
   .vision-item:nth-child(5) { /* AI & ML */
-    --radius: 275px;
+    --radius: 260px;
   }
 }
 
